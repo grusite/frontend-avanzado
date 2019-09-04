@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Responsive images</title>
+    <style>
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <img
+      src="./responsive-images/yacht_race@tablet.jpg"
+      srcset="
+        ./responsive-images/yacht_race@mobile.jpg 320w,
+        ./responsive-images/yacht_race@mobile.jpg 768w
+      "
+    /> -->
+    <picture>
+      <source
+        srcset="
+          ./responsive-images/yacht_race@mobile.jpg 320w,
+          ./responsive-images/yacht_race@mobile.jpg 768w
+        "
+        media="(min-width: 768px)"
+      />
+      <source srcset="./responsive-images/obama-500.jpg" media="(min-width: 320px)" />
+      <img src="./responsive-images/obama-100-art.jpg" alt="obama" />
+    </picture>
+  </body>
+</html>
