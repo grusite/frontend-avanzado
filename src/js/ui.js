@@ -3,9 +3,13 @@
 //   navbar.classList.add(addClass)
 // }
 
-const toogle = element => (removeClass, addClass) => {
+const toggle = element => (removeClass, addClass) => {
   element.classList.remove(removeClass)
   element.classList.add(addClass)
 }
 
-export default toogle
+const toggleClass = (element, toggleClass) => {
+  element.classList.toggle(toggleClass)
+}
+
+export { toggle, toggleClass }

@@ -1,4 +1,4 @@
-import toogle from './ui.js'
+import { toggle } from './ui.js'
 import { renderShowsDOM } from './shows.js'
 
 console.log('navbar')
@@ -10,7 +10,7 @@ const closeIcon = document.querySelector('#navbar-close')
 const searchForm = document.querySelector('#search-form')
 const searchInput = document.querySelector('#navbar .input.search')
 
-const handleNavbar = toogle(navbar)
+const handleNavbar = toggle(navbar)
 
 searchIcon.addEventListener('click', () => handleNavbar('no-search', 'search'))
 closeIcon.addEventListener('click', () => handleNavbar('search', 'no-search'))
