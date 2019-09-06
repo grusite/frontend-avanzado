@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Index Forms</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="name">Name: </label>
+      <input type="text" requiered name="name" id="text" />
+      <button type="sumbit">Submit</button>
+    </form>
+  </body>
+  <script>
+    const nameInput = document.querySelector('#name')
+    nameInput.setCustomValidity('Error en Espaniol')
+  </script>
+</html>

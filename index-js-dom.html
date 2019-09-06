@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no" />
+    <title>TVMaze shows</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <!-- styles -->
+  </head>
+  <body>
+    <h1>TVMAZE</h1>
+    <p id="my-p" class="texto" data-cy="selector-cypress">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero officia consectetur fugiat
+      delectus fuga possimus debitis deleniti, assumenda aspernatur, adipisci praesentium dolores
+      ipsam tempore! Rerum non nihil unde vitae voluptatum.
+    </p>
+
+    <button id="my-button">My Button</button>
+    <input type="text" id="my-input" />
+    <script>
+      console.log('Hello World')
+      const element = document.getElementsByClassName('texto')
+      console.log(element)
+      const myButton = document.getElementById('my-button')
+      const myInput = document.getElementById('my-input')
+      console.log(myInput)
+      myButton.addEventListener('click', () => console.log('Execute'))
+      myInput.addEventListener('click', () => console.log('ExecuteInput'))
+      myInput.addEventListener('focus', evt => {
+        console.log(evt)
+        console.log('Focus')
+      })
+      myInput.addEventListener('blur', () => console.log('Blur'))
+      myInput.addEventListener('keydown', () => console.log('Keydown'))
+      myInput.addEventListener('copy', () => console.log('Copy'))
+      // element.forEach(element => (element.innerHTML = '<div>Hola</div>'))
+      // element.innerHTML = '<div>Hola</div>'
+    </script>
+  </body>
+</html>

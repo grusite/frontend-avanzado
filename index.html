@@ -12,8 +12,97 @@
       crossorigin="anonymous"
     />
     <!-- styles -->
+    <link rel="stylesheet" href="/src/css/styles.css" />
   </head>
   <body>
-    <h1>TVMAZE</h1>
+    <!-- navbar -->
+    <navbar id="navbar" class="app-navbar no-search filter">
+      <div class="navbar-logo">
+        <a href="/">TVMAZE</a>
+      </div>
+      <div class="navbar-right-actions">
+        <div class="filter-container">
+          <form id="search-form" class="filter-input" novalidate>
+            <input
+              data-pattern-mismatch="Input invalid"
+              required
+              placeholder="search your serie"
+              class="input search"
+              type="text"
+            />
+            <button type="submit" class="button search">Search</button>
+          </form>
+        </div>
+        <div class="navbar-icon">
+          <i id="navbar-search" class="fas fa-search"></i>
+          <i id="navbar-close" class="fas fa-times"></i>
+        </div>
+      </div>
+    </navbar>
+    <!-- navbar-end -->
+    <!-- main–section -->
+    <main>
+      <section id="show-section" class="show-section">
+        <div class="card principal">
+          <header class="card-header">
+            <h2>First movie</h2>
+          </header>
+          <div class="card-content">
+            <div class="card-content-image">
+              <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            </div>
+            <div class="card-content-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut doloribus, ab nam, ea
+                quod nihil maxime soluta tempore, quo pariatur explicabo beatae possimus expedita
+                sunt nulla aspernatur! Harum, itaque, quia.
+              </p>
+              <div class="rating-container">
+                <button class="icon">
+                  <i class="fas fa-star"></i>
+                </button>
+                <button class="icon">
+                  <i class="far fa-star"></i>
+                </button>
+                <button class="icon">
+                  <i class="far fa-star"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="test-card" class="card secondary close">
+          <header class="card-header">
+            <h2>First movie</h2>
+          </header>
+          <div class="card-content">
+            <div class="card-content-image">
+              <img src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+            </div>
+            <div class="card-content-text">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut doloribus, ab nam, ea
+                quod nihil maxime soluta tempore, quo pariatur explicabo beatae possimus expedita
+                sunt nulla aspernatur! Harum, itaque, quia.
+              </p>
+              <div class="rating-container">
+                <button class="icon">
+                  <i class="fas fa-star"></i>
+                </button>
+                <button class="icon">
+                  <i class="far fa-star"></i>
+                </button>
+                <button class="icon">
+                  <i class="far fa-star"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- main-section end -->
+    <script type="module" src="/src/js/ui.js"></script>
+    <script type="module" src="/src/js/navbar.js"></script>
   </body>
 </html>
