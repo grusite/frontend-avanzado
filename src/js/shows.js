@@ -1,17 +1,18 @@
 import { toggleClass } from './ui.js'
+import api from './api.js'
 
-const templateShow = ({ principal, name, image, description }) => `
+const templateShow = ({ principal, name, image, summary }) => `
     <div class="card ${principal ? 'principal' : 'secondary close'}">
         <header class="card-header">
         <h2>${name}</h2>
         </header>
         <div class="card-content">
         <div class="card-content-image">
-            <img src=${image} />
+            <img src=${image ? image.medium : 'default.jpg'} />
         </div>
         <div class="card-content-text">
             <p>
-            ${description}
+            ${summary}
             </p>
             <div class="rating-container">
             <button class="icon">
@@ -29,29 +30,29 @@ const templateShow = ({ principal, name, image, description }) => `
     </div>
 `
 
-const items = [
-  {
-    id: 1,
-    name: 'Primer Show',
-    image: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
-    description: 'Lorem ipsum dolor sit amet',
-    principal: false,
-  },
-  {
-    id: 2,
-    name: 'Segundo Show',
-    image: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
-    description: 'qwerty',
-    principal: false,
-  },
-  {
-    id: 3,
-    name: 'Tercer Show',
-    image: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
-    description: 'Lorem ipsum dolor sit amet',
-    principal: false,
-  },
-]
+// const items = [
+//   {
+//     id: 1,
+//     name: 'Primer Show',
+//     image: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
+//     description: 'Lorem ipsum dolor sit amet',
+//     principal: false,
+//   },
+//   {
+//     id: 2,
+//     name: 'Segundo Show',
+//     image: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
+//     description: 'qwerty',
+//     principal: false,
+//   },
+//   {
+//     id: 3,
+//     name: 'Tercer Show',
+//     image: 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png',
+//     description: 'Lorem ipsum dolor sit amet',
+//     principal: false,
+//   },
+// ]
 
 const renderShows = (element, shows) => {
   const htmlShows = shows.map(templateShow).join('')
@@ -66,9 +67,16 @@ const renderShows = (element, shows) => {
   })
 }
 
-const renderShowsDOM = text => {
-  const mainSection = document.querySelector('main')
-  renderShows(mainSection, items)
+const { getShows, getSearchedShows } = api()
+
+const renderShowsDOM = async text => {
+  try {
+    const mainSection = document.querySelector('main')
+    if (text) renderShows(mainSection, await getSearchedShows(text))
+    else renderShows(mainSection, await getShows())
+  } catch (err) {
+    console.error(err.message)
+  }
 }
 
 renderShowsDOM()

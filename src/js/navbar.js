@@ -15,14 +15,6 @@ const handleNavbar = toggle(navbar)
 searchIcon.addEventListener('click', () => handleNavbar('no-search', 'search'))
 closeIcon.addEventListener('click', () => handleNavbar('search', 'no-search'))
 
-// const handleLogoClassName = toggle(logo)
-
-// setTimeout(() => {
-//   handleNavbar('no-search', 'search')
-// }, 1000)
-
-// handleLogoClassName('asd', 'test-class')
-
 searchForm.addEventListener('submit', evt => {
   evt.preventDefault()
   if (searchInput.validity.valid) {
