@@ -13,6 +13,7 @@
     />
     <!-- styles -->
     <link rel="stylesheet" href="/src/css/styles.css" />
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
   </head>
   <body>
     <!-- navbar -->
@@ -43,7 +44,21 @@
     <!-- main–section -->
     <main></main>
     <!-- main-section end -->
-    <script type="module" src="/src/js/ui.js"></script>
+    <!-- loader -->
+    <div id="loader" class="loader-container">
+      <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- Loader end -->
+    <script type="module" src="/src/js/routes.js"></script>
     <script type="module" src="/src/js/navbar.js"></script>
   </body>
 </html>

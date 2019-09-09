@@ -1,7 +1,4 @@
-// const handleNavbar = (removeClass, addClass) => {
-//   navbar.classList.remove(removeClass)
-//   navbar.classList.add(addClass)
-// }
+const loader = document.querySelector('#loader')
 
 const toggle = element => (removeClass, addClass) => {
   element.classList.remove(removeClass)
@@ -12,4 +9,6 @@ const toggleClass = (element, toggleClass) => {
   element.classList.toggle(toggleClass)
 }
 
-export { toggle, toggleClass }
+const renderLoader = toggle(loader)
+
+export { toggle, toggleClass, renderLoader }
