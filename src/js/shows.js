@@ -9,7 +9,7 @@ const templateShow = ({ principal, name, image, summary, id }) => `
             </header>
             <div class="card-content">
             <div class="card-content-image">
-                <img src=${image ? image.medium : 'default.jpg'} />
+                <img src=${image ? image.medium : '/src/img/default.jpg'} />
             </div>
             <div class="card-content-text">
                 <p>

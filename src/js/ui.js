@@ -1,4 +1,5 @@
 const loader = document.querySelector('#loader')
+const detailSection = document.querySelector('#detailSection')
 
 const toggle = element => (removeClass, addClass) => {
   element.classList.remove(removeClass)
@@ -11,4 +12,8 @@ const toggleClass = (element, toggleClass) => {
 
 const renderLoader = toggle(loader)
 
-export { toggle, toggleClass, renderLoader }
+// const handleCommentForm = display => (detailSection.style.display = display)
+const hideCommentForm = () => (detailSection.style.display = 'none')
+const showCommentForm = () => (detailSection.style.display = 'block')
+
+export { toggle, toggleClass, renderLoader, hideCommentForm, showCommentForm }

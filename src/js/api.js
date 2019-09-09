@@ -6,7 +6,12 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
   return {
     getShows: async () => {
       try {
-        const response = await fetch(showsAPIEndPoint)
+        const response = await fetch(showsAPIEndPoint, {
+          method: 'GET',
+          headers: {
+            // 'X-API-KEY': API_KEY,
+          },
+        })
         if (!response.ok) {
           throw new Error('Error fetching shows')
         }
