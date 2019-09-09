@@ -31,6 +31,18 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
         throw err
       }
     },
+    getShowDetail: async id => {
+      try {
+        const response = await fetch(`${showsAPIEndPoint}/${id}`)
+        if (!response.ok) {
+          throw new Error('Error fetching shows')
+        }
+        const data = await response.json()
+        return data
+      } catch (err) {
+        console.error(err.message)
+      }
+    },
   }
 }
 

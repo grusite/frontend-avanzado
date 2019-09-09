@@ -22,3 +22,9 @@ searchForm.addEventListener('submit', evt => {
     renderShowsDOM(searchInput.value)
   }
 })
+
+// Puedo usar el bind o el arrow function, para que me coja el contexto de la routes que es donde lo importo
+const hideFilter = handleNavbar.bind(this, 'filter', 'no-filter')
+const showFilter = () => handleNavbar('no-filter', 'filter')
+
+export { hideFilter, showFilter }

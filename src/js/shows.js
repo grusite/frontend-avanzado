@@ -98,6 +98,4 @@ const renderShowsDOM = async text => {
   }
 }
 
-renderShowsDOM()
-
 export { renderShowsDOM }
