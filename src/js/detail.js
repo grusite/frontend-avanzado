@@ -1,4 +1,5 @@
 import api from './api.js'
+import { renderQuotes } from './quotes.js'
 
 const { getShowDetail } = api()
 
@@ -9,7 +10,7 @@ const detailTemplate = ({ id, name, image, summary }) => `
                 <h1> ${name} </h1>
             </div>
             <div class="image-container">
-                <img src="${image ? image.original : '../src/img/default.jpg'}" />
+                <img src="${image ? image.original : '/src/img/default.jpg'}" />
             </div>
         </header>
         <div class="content">
@@ -22,6 +23,7 @@ const renderDetail = async id => {
   try {
     const selector = document.querySelector('main')
     const show = await getShowDetail(id)
+    await renderQuotes(id)
     selector.innerHTML = detailTemplate(show)
   } catch (err) {
     console.error(err.message)

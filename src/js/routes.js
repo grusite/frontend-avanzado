@@ -2,6 +2,8 @@ import { renderShowsDOM } from './shows.js'
 import { hideFilter, showFilter } from './navbar.js'
 import renderDetail from './detail.js'
 import { hideCommentForm, showCommentForm } from './ui.js'
+import { addQuoteListener } from './quotesForm.js'
+import { renderQuotes } from './quotes.js'
 
 page('/', () => {
   console.log('Home page')
@@ -18,5 +20,7 @@ page('/detail/:id', ctx => {
   hideFilter()
   showCommentForm()
   renderDetail(id)
+  addQuoteListener(id)
+  renderQuotes(id)
 })
 page()

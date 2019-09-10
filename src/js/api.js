@@ -8,9 +8,6 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
       try {
         const response = await fetch(showsAPIEndPoint, {
           method: 'GET',
-          headers: {
-            // 'X-API-KEY': API_KEY,
-          },
         })
         if (!response.ok) {
           throw new Error('Error fetching shows')
@@ -40,9 +37,42 @@ const api = (API_URL = 'https://api.tvmaze.com/') => {
       try {
         const response = await fetch(`${showsAPIEndPoint}/${id}`)
         if (!response.ok) {
-          throw new Error('Error fetching shows')
+          throw new Error('Error fetching detailed show')
         }
         const data = await response.json()
+        return data
+      } catch (err) {
+        console.error(err.message)
+      }
+    },
+    createQuote: async (id, text) => {
+      try {
+        const response = await fetch(`${API_URL}/quote/${id}`, {
+          method: 'POST',
+          body: JSON.stringify({
+            quote: text,
+          }),
+          headers: {
+            'Content-type': 'application/json',
+            'X-API-KEY': API_KEY,
+          },
+        })
+        if (!response.ok) {
+          throw new Error('Error fetching quote by ID')
+        }
+        const resBody = response.json()
+        return resBody
+      } catch (err) {
+        console.error(err.message)
+      }
+    },
+    getQuotes: async id => {
+      try {
+        const response = await fetch(`${API_URL}/quote/${id}`)
+        if (!response.ok) {
+          throw new Error('Error fetching quote by ID')
+        }
+        const data = response.json()
         return data
       } catch (err) {
         console.error(err.message)
