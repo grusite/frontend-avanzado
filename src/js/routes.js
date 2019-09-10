@@ -1,3 +1,5 @@
+/* eslint-disable no-undef*/
+
 import { renderShowsDOM } from './shows.js'
 import { hideFilter, showFilter } from './navbar.js'
 import renderDetail from './detail.js'
@@ -6,6 +8,7 @@ import { addQuoteListener } from './quotesForm.js'
 import { renderQuotes } from './quotes.js'
 
 page('/', () => {
+  // eslint-disable-line
   console.log('Home page')
   showFilter()
   hideCommentForm()
