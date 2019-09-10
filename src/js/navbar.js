@@ -1,7 +1,8 @@
 import { toggle } from './ui.js'
 import { renderShowsDOM } from './shows.js'
+import storage from './storage.js'
 
-console.log('navbar')
+const { setItem, getItem } = storage('cookieStorage')
 
 const navbar = document.querySelector('#navbar')
 const searchIcon = document.querySelector('#navbar-search')
@@ -9,6 +10,8 @@ const closeIcon = document.querySelector('#navbar-close')
 
 const searchForm = document.querySelector('#search-form')
 const searchInput = document.querySelector('#navbar .input.search')
+
+searchInput.value = getItem('navbar-input')
 
 const handleNavbar = toggle(navbar)
 
@@ -19,6 +22,7 @@ searchForm.addEventListener('submit', evt => {
   evt.preventDefault()
   if (searchInput.validity.valid) {
     //  Render Shows
+    setItem('navbar-input', searchInput.value)
     renderShowsDOM(searchInput.value)
   }
 })
